@@ -36,6 +36,7 @@ setup(
         'plone.api',
         'z3c.jbot',
         'plone.app.themingplugins',
+        'plone.app.mosaic',
     ],
     entry_points="""
     # -*- Entry points: -*-
