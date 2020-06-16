@@ -42,7 +42,7 @@
   <replace css:content="#viewlet-above-content" css:theme="#above-content" />
 
   <!-- Central column -->
-  <replace css:theme="#content-container" method="raw">
+  <replace css:if-not-content=".fullwidth_mosaic_layout" css:theme="#content-container" method="raw">
 
     <xsl:variable name="central">
       <xsl:if test="//aside[@id='portal-column-one'] and //aside[@id='portal-column-two']">col-xs-12 col-sm-6</xsl:if>
@@ -64,6 +64,11 @@
       </footer>
     </div>
   </replace>
+
+  <!-- Mosaic Views -->
+  <rules css:if-content=".fullwidth_mosaic_layout">
+      <replace css:theme=".outer-wrapper > .container" css:content="#portal-column-content" />
+  </rules>
 
   <!-- Alert message -->
   <replace css:theme-children="#global_statusmessage" css:content-children="#global_statusmessage" />

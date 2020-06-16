@@ -2,6 +2,8 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:monkey="http://namespaces.plone.org/monkey"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="pwc.content">
 
   <include package="plone.app.contentmenu" />
@@ -17,6 +19,32 @@
     class=".tiles.StyledText"
     schema=".tiles.IStyledText"
     />
+
+  <!-- full width mosaic layout -->
+  <browser:page
+      name="fullwidth_layout_view"
+      title="Full-Width Mosaic layout"
+      menu="plone_displayviews"
+      for="plone.app.blocks.layoutbehavior.ILayoutBehaviorAdaptable"
+      layer="plone.app.mosaic.interfaces.IMosaicLayer"
+      permission="zope2.View"
+      class="plone.app.blocks.layoutviews.ContentLayoutView"
+      zcml:condition="not-have mosaic-layoutmenu" />
+
+  <monkey:patch
+      description="Set Mosaic Layouts"
+      class="plone.app.mosaic.widget"
+      original="LAYOUT_VIEWS"
+      replacement=".common.patched_layout_view"
+      handler=".common.apply_patched_layout"
+      />
+
+  <adapter
+      for="*
+           plone.app.mosaic.interfaces.IMosaicLayer"
+      name="custom_mosaic_classes"
+      factory=".common.CustomBodyClass"
+      />
 
   <!-- -*- extra stuff goes here -*- -->
 
