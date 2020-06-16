@@ -10,13 +10,20 @@
            interface="plone.app.mosaic.interfaces.ITile">
     <value key="name">pwc.styledtext</value>
     <value key="label">Styled Text Block</value>
-    <value key="category">advanced</value>
+    <value key="category">custom_tiles</value>
     <value key="tile_type">app</value>
     <value key="default_value"></value>
     <value key="read_only">false</value>
     <value key="settings">true</value>
     <value key="favorite">true</value>
     <value key="rich_text">false</value>
+    <value key="weight">10</value>
+  </records>
+
+  <records interface="plone.app.mosaic.interfaces.IWeightedDict"
+           prefix="plone.app.mosaic.tiles_categories.pwc">
+    <value key="name">custom_tiles</value>
+    <value key="label">Custom Tiles</value>
     <value key="weight">10</value>
   </records>
 
