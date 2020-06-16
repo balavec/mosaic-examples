@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <body>
+    <div class="album-view container"
+         tal:define="results context">
+	<tal:listing condition="results">
+	  <div class="row col-12 ml-auto mr-auto">
+		<tal:block repeat="item results">
+		  <div class="col-12 col-md-6 col-lg-4 item"
+		       tal:define="obj item/getObject">
+			<a tal:attributes="href string:${obj/absolute_url}/view">
+			  <div class="row">
+				<div class="image-block">
+				  <img class="image"
+		               tal:define="scales obj/@@images;
+			  	                   image  python: scales.scale('image', scale='large')"
+		               tal:condition="image" tal:attributes="src image/url">
+				</div>
+				<p class="title">
+                    ${item/Title}<br />
+                    ${item/rights}
+                </p>
+			  </div>
+			</a>
+		  </div>
+	    </tal:block>
+	  </div>
+	</tal:listing>
+	<p class="discreet"
+	   tal:condition="not:results"
+	   i18n:translate="">
+	  No items were found
+	</p>
+    </div>
+  </body>
+</html>

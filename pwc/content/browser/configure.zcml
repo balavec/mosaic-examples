@@ -46,6 +46,15 @@
       factory=".common.CustomBodyClass"
       />
 
+  <!-- content listing tile template -->
+  <browser:page
+      name="tile_album_view"
+      for="*"
+      layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+      permission="zope2.View"
+      template="templates/tile_album_view.pt"
+      />
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>
