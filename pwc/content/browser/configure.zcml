@@ -1,9 +1,22 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="pwc.content">
 
   <include package="plone.app.contentmenu" />
+
+  <include package="plone.tiles" file="meta.zcml" />
+
+  <plone:tile
+    name="pwc.styledtext"
+    title="Styled Text Block"
+    for="*"
+    add_permission="cmf.ModifyPortalContent"
+    permission="zope2.View"
+    class=".tiles.StyledText"
+    schema=".tiles.IStyledText"
+    />
 
   <!-- -*- extra stuff goes here -*- -->
 

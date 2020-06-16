@@ -1,0 +1,17 @@
+<html><body>
+<div tal:define="image view/image_url;
+                 noimage python:not image and 'noimage' or '';
+                 id view/tile_id" 
+        class="styledtext-block ${noimage}">
+    <div class="panel panel-default">
+        <div class="panel-heading" id="heading-${id}" role="tab" 
+                style="background-image: url('${image}');">
+            <h4 class="panel-title" tal:content="view/title"></h4>
+        </div>
+        <div class="panel-body color-${view/bgcolor}">
+            <div tal:replace="structure view/body/output" />
+        </div>
+    </div>
+</div>
+
+</body></html>

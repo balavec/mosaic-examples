@@ -1,0 +1,31 @@
+.styledtext-block {
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    overflow: hidden;
+}
+.styledtext-block .panel-heading {
+    padding: 15px 20px;
+    background: #2e3133;
+    border-radius: 10px 10px 0 0;
+    background-size: cover;
+}
+.styledtext-block .panel-heading h4 {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+.styledtext-block .panel-body {
+    padding: 15px 20px;
+    font-size: 16px;
+}
+.panel-body.color-red {
+    background-color: #eac2c2;
+}
+.panel-body.color-blue {
+    background-color: #c2d0ea;
+}
+.panel-body.color-purple {
+    background-color: #e5baf1;
+}
